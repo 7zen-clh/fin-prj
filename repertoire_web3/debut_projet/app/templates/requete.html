@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr-FR">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='resultat.css') }}" />
+   </head>
+
+   <body>
+      <!-- background -->
+      <div class="background">
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+      </div>
+      
+      <form>
+         <h1 class="result">{{ l }} résultat(s) trouvé(s) pour votre recherche</h1>
+         <div class="tabl">
+            <table border="1">
+               <thead>
+                  <tr>
+                     <th>id</th>
+                     <th>Prénom</th>
+                     <th>Nom</th>
+                     <th>E-mail</th>
+                     <th>Adresse</th>
+                     <th>Ville</th>
+                     <th>Code postal</th>
+                  </tr>
+               </thead>
+               <tbody>
+               <p class="result"></p>
+                  {% for row in res %}
+                  <tr>
+                     <td>{{row["id"]}}</td>
+                     <td>{{row["prenom"]}}</td>
+                     <td>{{row["nom"]}}</td>
+                     <td>{{row['email']}}</td>
+                     <td>{{row['adresse']}}</td>
+                     <td>{{row['ville']}}</td>
+                     <td>{{row['codepostal']}}</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+         <p class="inscription"><a class="Mail" href="/">Retourner à la page d'accueil</a>&ensp;&ensp;<a  class="Mail" href="/recherche">Rechercher une personne</a></p>
+      </form>
+   </body>
+</html>
